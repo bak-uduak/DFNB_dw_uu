@@ -8,7 +8,7 @@ Ver      Date        Author        Description
 1.1     03/12/2021   UUDO       1. Enhanced example
 1.1     03/13/2021   UUDO       1. Refined script formatting
 RUNTIME: 
-Approx. 0 sec
+Approx. 1 min
 NOTES:
 This is an example of how to create a custom propery named MS_Description which is widely used to
 document schemas, tables, and fields in SQL Server. Can also be used to document contraints, indexes, 
