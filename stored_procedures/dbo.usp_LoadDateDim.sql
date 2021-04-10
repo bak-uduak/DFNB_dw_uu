@@ -13,7 +13,9 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE PROCEDURE [dbo].[usp_LoadDateDim] (@v_num_years as INT)
+--CREATE PROCEDURE [dbo].[usp_LoadDateDim] (@v_num_years as INT)
+CREATE PROCEDURE [dbo].[usp_LoadDateDim] (@v_num_days as INT)
+--@v_num_days;
 AS
 BEGIN
 /*****************************************************************************************************************
@@ -27,7 +29,8 @@ SUPPORT: Jaussi Consulting LLC
 MODIFICATION LOG:
 Ver       Date         Author       Description
 -------   ----------   ----------   -----------------------------------------------------------------------------
-1.0       11/17/2019   JJAUSSI      1. Built this starter script for LDS BC IT 243
+1.0       04/02/2021   UUDO      1. Built this starter script for LDS BC IT 243
+1.1       04/06/2021   UUDO      1. Enhanced with @v_num_days for better precision.
 
 
 RUNTIME: 
@@ -151,7 +154,8 @@ SELECT CONVERT(VARCHAR, (@v_first_date + n.n), 112) AS date_id
      , NULL AS holiday_ind -- Challenge field
      , NULL AS holiday_name -- Challenge field
   FROM dbo.Nums AS n
-  WHERE n.n <= (365 * @v_num_years)
+  --WHERE n.n <= (365 * @v_num_years)
+  WHERE n.n <= (@v_num_days + 1)
   ORDER BY 1;
 
 
